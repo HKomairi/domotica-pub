@@ -1,0 +1,72 @@
+{
+    "floors" : [
+        {
+            "name": "Groundfloor",
+            "nr": "1",
+            "uri": "/floor/1",
+            "rooms" : [
+                {
+                    "name": "Kitchen",
+                    "nr": "1",
+                    "temperature": "20",
+                    "music": "false"
+                },
+                {
+                    "name": "Living room",
+                    "nr": "2",
+                    "temperature": "21",
+                    "music": "false"
+                },
+                {
+                    "name": "Toilet",
+                    "nr": "3",
+                    "temperature": "18",
+                    "music": "false"
+                },
+                {
+                    "name": "Hall",
+                    "nr": "4",
+                    "temperature": "18",
+                    "music": "false"
+                },
+                {
+                    "name": "Dining room",
+                    "nr": "5",
+                    "temperature": "21",
+                    "music": "false"
+                }
+            ]
+        },
+        {
+            "name": "First floor",
+            "nr": "2",
+            "uri": "/floor/2",
+            "rooms" : [
+                {
+                    "name": "Bed room 1",
+                    "nr": "6",
+                    "temperature": "18",
+                    "music": "false"
+                },
+                {
+                    "name": "Bed room 2",
+                    "nr": "7",
+                    "temperature": "17",
+                    "music": "false"
+                },
+                {
+                    "name": "Bed room 3",
+                    "nr": "8",
+                    "temperature": "18",
+                    "music": "false"
+                },
+                {
+                    "name": "Bathroom",
+                    "nr": "9",
+                    "temperature": "20",
+                    "music": "false"
+                }
+            ]
+        }
+    ]
+}

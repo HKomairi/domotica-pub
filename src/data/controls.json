@@ -1,0 +1,11 @@
+{
+    "controls" : [
+        {
+            "name": "Curtains",
+            "floor": "1",
+            "room": "1",
+            "type": "Curtains",
+            "default": "open"
+        }
+    ]
+}

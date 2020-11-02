@@ -1,0 +1,27 @@
+.rooms {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: stretch;
+    align-items: flex-start;
+    margin: 2%;
+    padding: 2%;
+}
+
+.room {
+    width: 25%;
+    height: 40%;
+    min-width: 200px;
+    min-height: 80px;
+    background: rgb(224, 201, 156);
+    border: solid;
+    position: relative;
+}
+
+.temperature {
+    position: absolute;
+    bottom: 1%;
+    right: 1%;
+    text-align: right;
+    font-weight: bold;
+}
