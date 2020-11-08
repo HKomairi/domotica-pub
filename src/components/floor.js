@@ -3,7 +3,6 @@ import './floor.css';
 import Room from './Room';
 import data from '../data/home.json';
 import { useParams } from 'react-router-dom';
-import { RouterCarousel } from 'react-router-carousel';
 import { Grid } from 'semantic-ui-react';
 
 const Floor = () => {

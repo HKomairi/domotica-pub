@@ -1,20 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation, useParams, withRouter } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useLocation, withRouter } from 'react-router-dom';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
-import ControlForm from './ControlForm';
-import AddControl from './AddControl';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Content from './Content';
 import ControlList from './ControlList';
 import { useHistory } from 'react-router-dom';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 
 const RoomSettings = () => {
 
     let history = useHistory();
     const { state } = useLocation();
     console.log(state);
-    const [showForm, setShowForm] = useState('false');
 
     const routeChange = () => {
         let path = `/room/${state.room.nr}/add`;

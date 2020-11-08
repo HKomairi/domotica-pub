@@ -2,22 +2,11 @@
   "controls": [
     {
       "title": "",
-      "description": "Li",
-      "type": "",
-      "room": "1",
-      "name": "Light control",
-      "intensity": 0,
-      "createdAt": 1604833009247,
-      "updatedAt": 1604833009247,
-      "id": 4
-    },
-    {
-      "title": "",
       "description": "Main light in kitchen",
       "type": "Light",
       "room": "1",
       "name": "Central Light",
-      "intensity": "16",
+      "intensity": "12",
       "createdAt": 1604834140284,
       "updatedAt": 1604834140284,
       "id": 5
@@ -39,7 +28,7 @@
       "type": "Light",
       "room": "3",
       "name": "Toilet Light",
-      "intensity": "26",
+      "intensity": "22",
       "createdAt": 1604837254265,
       "updatedAt": 1604837254265,
       "id": 7
