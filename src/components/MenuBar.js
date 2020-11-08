@@ -20,16 +20,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Header = props => {
+const MenuBar = props => {
   const { history } = props;
   const classes = useStyles();
-  const [auth, setAuth] = useState(true);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
-
-  const handleChange = (event) => {
-    setAuth(event.target.checked);
-  };
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -75,4 +70,4 @@ const Header = props => {
   );
 }
 
-export default withRouter(Header);
+export default withRouter(MenuBar);

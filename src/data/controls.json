@@ -1,11 +1,92 @@
 {
-    "controls" : [
-        {
-            "name": "Curtains",
-            "floor": "1",
-            "room": "1",
-            "type": "Curtains",
-            "default": "open"
-        }
-    ]
+  "controls": [
+    {
+      "title": "",
+      "description": "Li",
+      "type": "",
+      "room": "1",
+      "name": "Light control",
+      "intensity": 0,
+      "createdAt": 1604833009247,
+      "updatedAt": 1604833009247,
+      "id": 4
+    },
+    {
+      "title": "",
+      "description": "Main light in kitchen",
+      "type": "Light",
+      "room": "1",
+      "name": "Central Light",
+      "intensity": "16",
+      "createdAt": 1604834140284,
+      "updatedAt": 1604834140284,
+      "id": 5
+    },
+    {
+      "title": "",
+      "description": "Curtain in kitchen",
+      "type": "Curtains",
+      "room": "1",
+      "name": "Curtains",
+      "intensity": 0,
+      "createdAt": 1604834172958,
+      "updatedAt": 1604834172958,
+      "id": 6
+    },
+    {
+      "title": "",
+      "description": "Light in the toilet",
+      "type": "Light",
+      "room": "3",
+      "name": "Toilet Light",
+      "intensity": "26",
+      "createdAt": 1604837254265,
+      "updatedAt": 1604837254265,
+      "id": 7
+    },
+    {
+      "title": "",
+      "description": "Toilet curtains",
+      "type": "Curtains",
+      "room": "3",
+      "name": "Curtains",
+      "intensity": 0,
+      "createdAt": 1604837362867,
+      "updatedAt": 1604837362867,
+      "id": 8
+    },
+    {
+      "title": "",
+      "description": "test",
+      "type": "Light",
+      "room": "8",
+      "name": "Hamid",
+      "intensity": "26",
+      "createdAt": 1604840548785,
+      "updatedAt": 1604840548785,
+      "id": 9
+    },
+    {
+      "title": "",
+      "description": "Audio control",
+      "type": "Curtains",
+      "room": "8",
+      "name": "Hamid Komairi",
+      "intensity": 0,
+      "createdAt": 1604840557665,
+      "updatedAt": 1604840557665,
+      "id": 10
+    },
+    {
+      "title": "",
+      "description": "Audio control",
+      "type": "Curtains",
+      "room": "8",
+      "name": "Curtains",
+      "intensity": 0,
+      "createdAt": 1604840586512,
+      "updatedAt": 1604840586512,
+      "id": 11
+    }
+  ]
 }

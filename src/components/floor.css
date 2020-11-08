@@ -1,9 +1,7 @@
-.rooms {
+.rooms, .cards {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: stretch;
-    align-items: flex-start;
+    justify-content: center;
     margin: 2%;
     padding: 2%;
 }
@@ -13,7 +11,8 @@
     height: 40%;
     min-width: 200px;
     min-height: 80px;
-    background: rgb(224, 201, 156);
+    margin: 5%;
+    background: white;
     border: solid;
     position: relative;
 }
@@ -24,4 +23,11 @@
     right: 1%;
     text-align: right;
     font-weight: bold;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
