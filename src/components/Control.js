@@ -1,36 +1,56 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Button, Confirm, Form, Icon, Grid, Header } from 'semantic-ui-react';
+import { Card, Button, Confirm, Form, Icon, Grid, Header, Table, Checkbox } from 'semantic-ui-react';
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import axios from "axios";
 import { DB_URL } from '../data/db';
 
+import TimeTable from './TimeTable';
+
 const LightControl = ({ control, onDelete }) => {
+    const { name, description, type, value } = control;
     const [showConfirmDialog, setShowConfirmDialog] = useState(false);
-    const { name, createdAt, description, intensity } = control;
-    const [lightIntensity, setLightIntensity] = useState(intensity);
+    const [controlValue, setControlValue] = useState(value);
+    const [applyValue, setApplyValue] = useState(false);
+    const [valueChanged, setValueChanged] = useState(false);
 
     const handleChangeIntensity = (e) => {
-        setLightIntensity(e.target.value);
+        setControlValue(e.target.value);
+        setValueChanged(true);
+    }
+
+    const handleApplyChange = () => {
+        setApplyValue(true);
+    }
+    const toggleCurtainPos = () => {
+        if (controlValue == '1') setControlValue(0);
+        else setControlValue(1);
+        setApplyValue(true);
     }
 
     useEffect(() => {
-        console.log('intensity changed!')
+        console.log('Value: ' + value);
+        // document.getElementById('intensity').value = value;
+    }, [])
+    useEffect(() => {
         async function patchData() {
-            console.log(intensity);
+            console.log('lightIntensity: ' + controlValue);
             try {
-                const response = await axios.patch(`${DB_URL}/controls/${control.id}`, { intensity: lightIntensity });
+                const response = await axios.patch(`${DB_URL}/controls/${control.id}`, { value: controlValue });
             } catch (error) {
                 console.log("Could not update control! " + error);
             }
         }
         patchData();
-    }, [lightIntensity])
+    }, [applyValue])
+
+    
 
     return (
         <>
             <Confirm
                 open={showConfirmDialog}
-                header="You are about to delete this temperature control!"
+                header="You are about to delete this control!"
                 content={"Are you sure?"}
                 confirmButton="Yes"
                 cancelButton="Cancel"
@@ -55,18 +75,42 @@ const LightControl = ({ control, onDelete }) => {
                         </Grid.Row>
                     </Grid>
                 </Card.Content>
-                <Card.Content>
-                    <Form.Input
-                        fluid label={`Intensity: ${intensity}`}
-                        min={0}
-                        max={30}
-                        name='intensity'
-                        onChange={handleChangeIntensity}
-                        step={2}
-                        type='range'
-                        value={intensity}
-                    />
-                </Card.Content>
+                { control.type == 'Curtains' ? 
+                    <Card.Content>
+                        <Button
+                            
+                            icon
+
+                            primary
+                            size='large'
+                            onClick={toggleCurtainPos}
+                        >
+                            { controlValue=='1'? 'Close' : 'Open' }
+                        </Button>
+                    </Card.Content>
+                :
+                    <Card.Content>
+                        <Grid>
+                            <Grid.Row>
+                                <Grid.Column width="12">
+                                    <Form.Input
+                                        fluid label={`Intensity: ${controlValue}`}
+                                        min={0}
+                                        max={type == 'Temp' ? 30 : 20}
+                                        name='intensity'
+                                        onChange={handleChangeIntensity}
+                                        step={1}
+                                        type='range'
+                                        id='intensity'
+                                        value={controlValue} 
+                                    />
+                                </Grid.Column>
+                                <Grid.Column width="1"><CheckCircleIcon fontSize="large" color={valueChanged ? 'action' : 'primary'} onClick={() => handleApplyChange()} /></Grid.Column>
+                            </Grid.Row>
+                        </Grid>
+                    </Card.Content>                    
+                }
+                <TimeTable control={control} />
             </Card>
         </>
     );

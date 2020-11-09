@@ -8,7 +8,12 @@ const ControlForm = ({ loading, onSubmit }) => {
         type: "",
         name: ""
     })
-
+    const options = [
+        { key: '0', text: 'Audio', value: 'Audio' },
+        { key: '1', text: 'Curtain', value: 'Curtain' },
+        { key: '2', text: 'Light', value: 'Light' },
+        { key: '3', text: 'Temp', value: 'Temp' },
+    ]
 
     const onChange = (e, { name, value }) => setFormData({ ...formData, [name]: value });
 
@@ -29,11 +34,11 @@ const ControlForm = ({ loading, onSubmit }) => {
                     value={formData.description}
                     onChange={onChange}
                 />
-                <Form.Input
+                <Form.Select
                     name="type"
                     label="Control type"
+                    options={options}
                     placeholder='The control to be added to this room'
-                    value={formData.type}
                     onChange={onChange}
                 />
                 <Form.Button content="Submit" />

@@ -5,64 +5,71 @@ import { Link } from 'react-router-dom';
 import { controls } from '../data/controls.json';
 import axios from "axios";
 import { DB_URL } from '../data/db';
-import Slider from '@material-ui/core/Slider';
-import Typography from '@material-ui/core/Typography';
-import { Form } from 'semantic-ui-react';
+import { Card, Button, Confirm, Form, Icon, Grid, Header } from 'semantic-ui-react';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 
 const Room = ({ room }) => {
-
     const roomControls = controls.filter(control => control.room === room.nr);
     const lightControl = roomControls.filter(control => control.type ==='Light');
     const [backgroundColor, setBackgroundColor] = useState();
-    const [intensity, setIntensity] = useState();
+    const [intensity, setIntensity] = useState(lightControl[0]?lightControl[0].value:0);
+    const [applyIntensity, setApplyIntensity] = useState(false);
+    const [intensityChanged, setIntensityChanged] = useState(false);
     
     const handleChangeIntensity = (e) => {
         console.log('IN:handleChangeIntensity: ' + e.target.value)
         setIntensity(e.target.value);
+        setIntensityChanged(true);
+    }
+
+    const handleApplyIntensity = () => {
+        setApplyIntensity(true);
     }
     
-    var rgbToHex = function (rgb) { 
-        var hex = Number(rgb).toString(16);
+    const rgbToHex = function (rgb) { 
+        console.log('IN rgbToHex - rgb: ' + rgb);
+        let hex = Number(Math.round(rgb)).toString(16);
         if (hex.length < 2) {
              hex = "0" + hex;
         }
         return hex;
-      };
-
+    };
+    
     let lightColorFromIntensity = function(intensity) {
-        let r = intensity * (255/30);
-        let g = intensity * (255/30);
-        let b = 0;
-        var red = rgbToHex(r);
-        var green = rgbToHex(g);
-        var blue = rgbToHex(b);
+        console.log('IN lightColorFromIntensity - intensity: ' + intensity);
+        var red = rgbToHex(intensity * (255/20));
+        var green = rgbToHex(intensity * (255/20));
+        var blue = rgbToHex(0);
         return red+green+blue;
-      };
-      useEffect(() => {
-        console.log('useEffect intensity:' + intensity)
+    };
+
+    useEffect(() => {
         if (lightControl.length > 0) {
-            let color = lightColorFromIntensity(intensity);
-            console.log(color);
-            setBackgroundColor('#'+color);
+            setBackgroundColor('#'+lightColorFromIntensity(intensity));
+            document.getElementById('intensity').label = 'Intensity: ' + intensity;
         }
-        return (
-            async () => {
+    }, [intensity])
+
+    useEffect(() => {
+        if (lightControl.length > 0) {
+            setBackgroundColor('#'+lightColorFromIntensity(lightControl[0].value));
+            // document.getElementById('intensity').value = lightControl[0].intensity;
+            // console.log('background-color: ' + lightColorFromIntensity(lightControl[0].value))
+            // console.log('intensity: ' + lightControl[0].value)
+        }
+    }, [])
+    useEffect(() => {
+        if (lightControl.length > 0) {
+            async function patchData() {
                 try {
-                    const response = await axios.patch(`${DB_URL}/controls/${lightControl[0].id}`, { intensity: intensity });
+                    const response = await axios.patch(`${DB_URL}/controls/${lightControl[0].id}`, { value: intensity });
                 } catch (error) {
                     console.log("Could not update control! " + error);
                 }
             }
-        )
-    }, [intensity])
-    useEffect(() => {
-        if (lightControl.length > 0) {
-            console.log('useEffect ' + lightControl[0].intensity)
-            let color = lightColorFromIntensity(lightControl[0].intensity);
-            console.log(color);
-            setBackgroundColor('#'+color);
+            patchData();
         }
-    }, [])
+    }, [applyIntensity])
     
     return (
         <div>
@@ -83,36 +90,29 @@ const Room = ({ room }) => {
                         }
                     </div>
                     <div className="slider">
-                        {lightControl.length > 0 ?
-                            /*
-                            <div>
-                                {console.log(lightControl[0].intensity)}
-                                <Typography id="continuous-slider" gutterBottom>
-                                    Light intensity
-                                </Typography>
-                                <Slider
-                                    label="Light intensity"
-                                    min={0}
-                                    step={2}
-                                    max={30}
-                                    onChangeCommitted={handleChangeIntensity}
-                                    aria-labelledby="continuous-slider"
-                                    valueLabelDisplay="auto"
-                                    value={lightControl[0].intensity}
-                                />
+                        {lightControl.length > 0 ?   
+                        <div>  
+                        <Grid>    
+                            <Grid.Row>
+                                <Grid.Column width="12">
+                                    <Form.Input
+                                        fluid label={`Intensity: ${intensity}`}
+                                        min={0}
+                                        max={20}
+                                        name='intensity'
+                                        onChange={handleChangeIntensity}
+                                        step={1}
+                                        type='range'
+                                        id='intensity' 
+                                        value={intensity} 
+                                    />
+                                </Grid.Column>
+                                <Grid.Column width="1"><CheckCircleIcon fontSize="small" color={intensityChanged ? 'action' : 'primary'} onClick={() => handleApplyIntensity()} /></Grid.Column>
+                            </Grid.Row>
+                        </Grid>               
+                            
                             </div>
-                           */
-                           
-                            <Form.Input
-                                fluid label={`Intensity: ${lightControl[0].intensity}`}
-                                min={0}
-                                max={30}
-                                name='intensity'
-                                onChange={handleChangeIntensity}
-                                step={2}
-                                type='range'
-                                value={lightControl[0].intensity}
-                            /> : ''}
+                            : ''}
                     </div>       
             </div>
         </div>

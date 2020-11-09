@@ -50,9 +50,9 @@ const ControlList = (props) => {
                     <Card.Group>
                         {controls.map((control) => {
                             if (control.type == 'Light') {return <LightControl key={control.id} control={control} onDelete={deleteControl} />};
-                            if (control.type == 'Temp') {return <TempControl key={control.id} control={control} onDelete={deleteControl} />};
-                            if (control.type == 'Audio') {return <AudioControl key={control.id} control={control} onDelete={deleteControl} />};
-                            if (control.type == 'Curtains') {return <CurtainControl key={control.id} control={control} onDelete={deleteControl} />};
+                            if (control.type == 'Temp') {return <LightControl key={control.id} control={control} onDelete={deleteControl} />};
+                            if (control.type == 'Audio') {return <LightControl key={control.id} control={control} onDelete={deleteControl} />};
+                            if (control.type == 'Curtains') {return <LightControl key={control.id} control={control} onDelete={deleteControl} />};
                         }
                         )}
                     </Card.Group>

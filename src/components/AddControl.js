@@ -15,7 +15,7 @@ const AddControl = (props) => {
         console.log(props.roomnumber);
         
         try {
-            const response = await axios.post(`${DB_URL}/controls`, { title, description, type:type, room: nr, name: name, intensity:0, createdAt: now, updatedAt: now });
+            const response = await axios.post(`${DB_URL}/controls`, { title, description, type:type, room: nr, name: name, value:0, createdAt: now, updatedAt: now, timeslots: [] });
             history.goBack();
         } catch (error) {
             console.error("Could not create new control:" + error);
