@@ -42,7 +42,7 @@ const Room = ({ room }) => {
         let red = 0;
         let green = 0;
         let blue = 0;
-        if (curtainControl.length > 0 && curtainControl[0].value == '0') {
+        if (curtainControl.length == 0 || (curtainControl.length > 0 && curtainControl[0].value == '0')) {
             red = rgbToHex(intensity * (255/20));
             green = rgbToHex(intensity * (255/20));
             blue = rgbToHex(0);

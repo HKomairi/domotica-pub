@@ -70,7 +70,7 @@ const Control = ({ control, onDelete }) => {
                         </Grid.Row>
                         <Grid.Row>
                             <Grid.Column width={14}>
-                                <Card.Description>{description}</Card.Description>
+                                <Card.Description>{description}{ control.type == 'Curtain' ? control.value == '1' ? ' open' : ' closed' : '' }</Card.Description>
                             </Grid.Column>
                         </Grid.Row>
                     </Grid>

@@ -23,7 +23,6 @@ const AddControl = (props) => {
         history.pop();
     }
 
-
     return (
         <Container style={{ padding: "50px" }}>
             <Header>Add a new control</Header>
