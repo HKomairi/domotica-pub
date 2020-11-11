@@ -10,20 +10,7 @@
       "createdAt": 1604834140284,
       "updatedAt": 1604834140284,
       "id": 5,
-      "timeslots": [
-        {
-          "start": "21:00",
-          "stop": "22:00"
-        },
-        {
-          "start": "01:00",
-          "stop": "02:00"
-        },
-        {
-          "start": "00:00",
-          "stop": "00:00"
-        }
-      ],
+      "timeslots": [],
       "intensity": "15"
     },
     {
@@ -36,20 +23,7 @@
       "createdAt": 1604834172958,
       "updatedAt": 1604834172958,
       "id": 6,
-      "timeslots": [
-        {
-          "start": "21:00",
-          "stop": "22:00"
-        },
-        {
-          "start": "01:00",
-          "stop": "02:00"
-        },
-        {
-          "start": "00:00",
-          "stop": "00:00"
-        }
-      ]
+      "timeslots": []
     },
     {
       "title": "",
@@ -63,16 +37,10 @@
       "id": 7,
       "timeslots": [
         {
-          "start": "21:00",
-          "stop": "22:00"
-        },
-        {
-          "start": "01:00",
-          "stop": "02:00"
-        },
-        {
+          "id": 0,
           "start": "00:00",
-          "stop": "00:00"
+          "stop": "00:00",
+          "value": "17"
         }
       ],
       "intensity": "18"
@@ -89,16 +57,22 @@
       "id": 8,
       "timeslots": [
         {
-          "start": "21:00",
-          "stop": "22:00"
+          "id": 0,
+          "start": "02:00",
+          "stop": "07:00",
+          "value": "10"
         },
         {
+          "id": 1,
           "start": "01:00",
-          "stop": "02:00"
+          "stop": "22:00",
+          "value": "13"
         },
         {
-          "start": "00:00",
-          "stop": "00:00"
+          "id": 2,
+          "start": "01:00",
+          "stop": "23:00",
+          "value": "13"
         }
       ]
     },
@@ -108,22 +82,34 @@
       "type": "Light",
       "room": "8",
       "name": "Hamid",
-      "value": "6",
+      "value": "17",
       "createdAt": 1604840548785,
       "updatedAt": 1604840548785,
       "id": 9,
       "timeslots": [
         {
-          "start": "21:00",
-          "stop": "22:00"
+          "id": 0,
+          "start": "03:00",
+          "stop": "04:00",
+          "value": "3"
         },
         {
+          "id": 1,
           "start": "01:00",
-          "stop": "02:00"
+          "stop": "20:00",
+          "value": "4"
         },
         {
+          "id": 2,
           "start": "00:00",
-          "stop": "00:00"
+          "stop": "23:00",
+          "value": "4"
+        },
+        {
+          "id": 3,
+          "start": "00:00",
+          "stop": "00:00",
+          "value": "19"
         }
       ]
     },
@@ -133,22 +119,16 @@
       "type": "Curtains",
       "room": "8",
       "name": "Hamid Komairi",
-      "value": 0,
+      "value": 1,
       "createdAt": 1604840557665,
       "updatedAt": 1604840557665,
       "id": 10,
       "timeslots": [
         {
-          "start": "21:00",
-          "stop": "22:00"
-        },
-        {
-          "start": "01:00",
-          "stop": "02:00"
-        },
-        {
+          "id": 0,
           "start": "00:00",
-          "stop": "00:00"
+          "stop": "00:00",
+          "value": 1
         }
       ]
     },
@@ -162,20 +142,7 @@
       "createdAt": 1604927582480,
       "updatedAt": 1604927582480,
       "id": 12,
-      "timeslots": [
-        {
-          "start": "21:00",
-          "stop": "22:00"
-        },
-        {
-          "start": "01:00",
-          "stop": "02:00"
-        },
-        {
-          "start": "00:00",
-          "stop": "00:00"
-        }
-      ]
+      "timeslots": []
     },
     {
       "title": "",
@@ -189,16 +156,22 @@
       "id": 13,
       "timeslots": [
         {
-          "start": "21:00",
-          "stop": "22:00"
+          "id": 5,
+          "start": "05:00",
+          "stop": "22:00",
+          "value": "23"
         },
         {
+          "id": 6,
+          "start": "00:00",
+          "stop": "01:00",
+          "value": "24"
+        },
+        {
+          "id": 7,
           "start": "01:00",
-          "stop": "02:00"
-        },
-        {
-          "start": "04:00",
-          "stop": "07:00"
+          "stop": "03:00",
+          "value": "8"
         }
       ],
       "value": "6"
@@ -213,20 +186,7 @@
       "createdAt": 1604932480950,
       "updatedAt": 1604932480950,
       "id": 14,
-      "timeslots": [
-        {
-          "start": "21:00",
-          "stop": "22:00"
-        },
-        {
-          "start": "01:00",
-          "stop": "02:00"
-        },
-        {
-          "start": "04:00",
-          "stop": "07:00"
-        }
-      ],
+      "timeslots": [],
       "value": "20"
     }
   ]
