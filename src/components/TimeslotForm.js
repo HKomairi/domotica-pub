@@ -7,8 +7,6 @@ import { DB_URL } from '../data/db';
 const TimeslotForm = ({toggle, control, id, edit}) => {
 
     const { name, description, type, value } = control;
-
-    // State
     const [startTime, setStartTime] = useState('00:00');
     const [stopTime, setStopTime] = useState('00:00');
     const [controlValue, setControlValue] = useState(value);
@@ -18,8 +16,6 @@ const TimeslotForm = ({toggle, control, id, edit}) => {
         setControlValue(e.target.value);
         setValueChanged(true);
     }
-
-    // Handlers
     const handleStartTimeChange = (e, {value}) => {
         console.log('starttime: ' + value);
         setStartTime(value);

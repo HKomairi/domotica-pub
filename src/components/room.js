@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import MusicNoteIcon from '@material-ui/icons/MusicNote';
-import MusicOffIcon from '@material-ui/icons/MusicOff';
 import { Link } from 'react-router-dom';
 import { controls } from '../data/controls.json';
 import axios from "axios";
 import { DB_URL } from '../data/db';
-import { Card, Button, Confirm, Form, Icon, Grid, Header } from 'semantic-ui-react';
+import { Form, Grid } from 'semantic-ui-react';
+import MusicNoteIcon from '@material-ui/icons/MusicNote';
+import MusicOffIcon from '@material-ui/icons/MusicOff';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 
 const Room = ({ room }) => {
+
     const roomControls = controls.filter(control => control.room === room.nr);
     const lightControl = roomControls.filter(control => control.type ==='Light');
+    const audioControl = roomControls.filter(control => control.type ==='Audio');
+    const curtainControl = roomControls.filter(control => control.type === 'Curtain');
+    const tempControl = roomControls.filter(control => control.type === 'Temp');
     const [backgroundColor, setBackgroundColor] = useState();
     const [intensity, setIntensity] = useState(lightControl[0]?lightControl[0].value:0);
     const [applyIntensity, setApplyIntensity] = useState(false);
@@ -21,7 +25,6 @@ const Room = ({ room }) => {
         setIntensity(e.target.value);
         setIntensityChanged(true);
     }
-
     const handleApplyIntensity = () => {
         setApplyIntensity(true);
     }
@@ -34,12 +37,21 @@ const Room = ({ room }) => {
         }
         return hex;
     };
-    
     let lightColorFromIntensity = function(intensity) {
         console.log('IN lightColorFromIntensity - intensity: ' + intensity);
-        var red = rgbToHex(intensity * (255/20));
-        var green = rgbToHex(intensity * (255/20));
-        var blue = rgbToHex(0);
+        let red = 0;
+        let green = 0;
+        let blue = 0;
+        if (curtainControl.length > 0 && curtainControl[0].value == '0') {
+            red = rgbToHex(intensity * (255/20));
+            green = rgbToHex(intensity * (255/20));
+            blue = rgbToHex(0);
+        }
+        else {
+            red = rgbToHex(255);
+            green = rgbToHex(255);
+            blue = rgbToHex(255 - intensity * (255/20));
+        }
         return red+green+blue;
     };
 
@@ -49,13 +61,9 @@ const Room = ({ room }) => {
             document.getElementById('intensity').label = 'Intensity: ' + intensity;
         }
     }, [intensity])
-
     useEffect(() => {
         if (lightControl.length > 0) {
             setBackgroundColor('#'+lightColorFromIntensity(lightControl[0].value));
-            // document.getElementById('intensity').value = lightControl[0].intensity;
-            // console.log('background-color: ' + lightColorFromIntensity(lightControl[0].value))
-            // console.log('intensity: ' + lightControl[0].value)
         }
     }, [])
     useEffect(() => {
@@ -82,11 +90,11 @@ const Room = ({ room }) => {
                     >
                     {room.name}</Link>
                     <div className="temperature">
-                        {room.temperature}°C
+                        { tempControl.length > 0 ? tempControl[0].value + '°C' : '' }
                     </div>
                     <div className="musicNote">
                         {
-                            room.music == 'true' ? <MusicNoteIcon /> : <MusicOffIcon />
+                            audioControl.length > 0 ? audioControl[0].value >= 1 ? <MusicNoteIcon /> : <MusicOffIcon /> : ''
                         }
                     </div>
                     <div className="slider">

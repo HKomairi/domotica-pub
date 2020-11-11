@@ -3,7 +3,7 @@ import { useLocation, withRouter } from 'react-router-dom';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import ControlList from './ControlList';
 import { useHistory } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 
 const RoomSettings = () => {
 
@@ -18,11 +18,12 @@ const RoomSettings = () => {
 
     return (
         <div className="roomSettings">
+            { state ? 
             <Container>
                 <h1>{state.room.name}</h1>
                 <ControlList className="cards" roomnumber={state.room.nr} room={`/room/${state.room.nr}`} />
                 <AddCircleIcon fontSize="large" onClick={() => routeChange() }/>
-            </Container>
+            </Container> : ''}
         </div>
     );
 

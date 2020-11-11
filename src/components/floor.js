@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './floor.css';
 import Room from './Room';
 import data from '../data/home.json';
@@ -17,9 +17,11 @@ const Floor = () => {
         <div className="floor">
             <h1>{ floor }</h1>
             <div className="rooms">
+            { localStorage.getItem('renderStyle') === 'list' ?
             <Grid align="center">
                 { rooms.map(room => <Room room={room} key={room.name}/>) }
             </Grid>
+            : rooms.map(room => <div className="room" style={{top:room.x, left:room.y, width:room.width, height:room.height, position:'absolute', border:'none'}}> <Room room={room} key={room.name}/> </div>) }
             </div>
         </div>
     )

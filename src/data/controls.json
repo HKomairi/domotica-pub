@@ -6,24 +6,19 @@
       "type": "Light",
       "room": "1",
       "name": "Central Light",
-      "value": "5",
+      "value": "17",
       "createdAt": 1604834140284,
       "updatedAt": 1604834140284,
       "id": 5,
-      "timeslots": [],
+      "timeslots": [
+        {
+          "id": 0,
+          "start": "11:00",
+          "stop": "21:00",
+          "value": "17"
+        }
+      ],
       "intensity": "15"
-    },
-    {
-      "title": "",
-      "description": "Curtain in kitchen",
-      "type": "Curtains",
-      "room": "1",
-      "name": "Curtains",
-      "value": 0,
-      "createdAt": 1604834172958,
-      "updatedAt": 1604834172958,
-      "id": 6,
-      "timeslots": []
     },
     {
       "title": "",
@@ -31,7 +26,7 @@
       "type": "Light",
       "room": "3",
       "name": "Toilet Light",
-      "value": "17",
+      "value": "14",
       "createdAt": 1604837254265,
       "updatedAt": 1604837254265,
       "id": 7,
@@ -41,6 +36,12 @@
           "start": "00:00",
           "stop": "00:00",
           "value": "17"
+        },
+        {
+          "id": 1,
+          "start": "01:20",
+          "stop": "00:00",
+          "value": "7"
         }
       ],
       "intensity": "18"
@@ -48,9 +49,9 @@
     {
       "title": "",
       "description": "Toilet curtains",
-      "type": "Curtains",
+      "type": "Curtain",
       "room": "3",
-      "name": "Curtains",
+      "name": "Curtain",
       "value": 0,
       "createdAt": 1604837362867,
       "updatedAt": 1604837362867,
@@ -66,7 +67,7 @@
           "id": 1,
           "start": "01:00",
           "stop": "22:00",
-          "value": "13"
+          "value": "3"
         },
         {
           "id": 2,
@@ -82,7 +83,7 @@
       "type": "Light",
       "room": "8",
       "name": "Hamid",
-      "value": "17",
+      "value": "9",
       "createdAt": 1604840548785,
       "updatedAt": 1604840548785,
       "id": 9,
@@ -116,7 +117,7 @@
     {
       "title": "",
       "description": "Audio control",
-      "type": "Curtains",
+      "type": "Curtain",
       "room": "8",
       "name": "Hamid Komairi",
       "value": 1,
@@ -135,14 +136,21 @@
     {
       "title": "",
       "description": "Audio control",
-      "type": "Curtains",
+      "type": "Curtain",
       "room": "1",
-      "name": "Curtains",
+      "name": "Curtain",
       "value": 0,
       "createdAt": 1604927582480,
       "updatedAt": 1604927582480,
       "id": 12,
-      "timeslots": []
+      "timeslots": [
+        {
+          "id": 0,
+          "start": "05:00",
+          "stop": "22:00",
+          "value": "14"
+        }
+      ]
     },
     {
       "title": "",
@@ -186,8 +194,173 @@
       "createdAt": 1604932480950,
       "updatedAt": 1604932480950,
       "id": 14,
+      "timeslots": [
+        {
+          "id": 0,
+          "start": "01:00",
+          "stop": "05:00",
+          "value": "20"
+        }
+      ],
+      "value": "2"
+    },
+    {
+      "title": "",
+      "description": "Temperature",
+      "type": "Temp",
+      "room": "2",
+      "name": "Temperature Control",
+      "value": 0,
+      "createdAt": 1605080731593,
+      "updatedAt": 1605080731593,
       "timeslots": [],
-      "value": "20"
+      "id": 15
+    },
+    {
+      "title": "",
+      "description": "Audio control",
+      "type": "Curtain",
+      "room": "5",
+      "name": "Hamid",
+      "value": 0,
+      "createdAt": 1605085531933,
+      "updatedAt": 1605085531933,
+      "timeslots": [],
+      "id": 16
+    },
+    {
+      "title": "",
+      "description": "test",
+      "type": "Curtain",
+      "room": "2",
+      "name": "Hamid",
+      "value": 0,
+      "createdAt": 1605085880427,
+      "updatedAt": 1605085880427,
+      "timeslots": [],
+      "id": 18
+    },
+    {
+      "title": "",
+      "description": "Curtain control",
+      "type": "Curtain",
+      "room": "7",
+      "name": "Curtain",
+      "value": 0,
+      "createdAt": 1605086111136,
+      "updatedAt": 1605086111136,
+      "timeslots": [],
+      "id": 19
+    },
+    {
+      "title": "",
+      "description": "test",
+      "type": "Audio",
+      "room": "1",
+      "name": "Hamid",
+      "value": 0,
+      "createdAt": 1605086659039,
+      "updatedAt": 1605086659039,
+      "timeslots": [
+        {
+          "id": 0,
+          "start": "00:00",
+          "stop": "00:00",
+          "value": "9"
+        }
+      ],
+      "id": 20
+    },
+    {
+      "title": "",
+      "description": "Light control",
+      "type": "Temp",
+      "room": "5",
+      "name": "Hamid Komairi",
+      "value": 0,
+      "createdAt": 1605086931858,
+      "updatedAt": 1605086931858,
+      "timeslots": [],
+      "id": 21
+    },
+    {
+      "title": "",
+      "description": "Audio control",
+      "type": "Audio",
+      "room": "5",
+      "name": "Hamid Komairi",
+      "value": 0,
+      "createdAt": 1605086947410,
+      "updatedAt": 1605086947410,
+      "timeslots": [],
+      "id": 22
+    },
+    {
+      "title": "",
+      "description": "test",
+      "type": "Audio",
+      "room": "6",
+      "name": "Hamid",
+      "value": 0,
+      "createdAt": 1605088611202,
+      "updatedAt": 1605088611202,
+      "timeslots": [],
+      "id": 23
+    },
+    {
+      "title": "",
+      "description": "test",
+      "type": "Curtain",
+      "room": "7",
+      "name": "Hamid Komairi",
+      "value": 0,
+      "createdAt": 1605088634670,
+      "updatedAt": 1605088634670,
+      "timeslots": [],
+      "id": 24
+    },
+    {
+      "title": "",
+      "description": "Light control",
+      "type": "Light",
+      "room": "4",
+      "name": "Hamid",
+      "value": "15",
+      "createdAt": 1605088658754,
+      "updatedAt": 1605088658754,
+      "timeslots": [],
+      "id": 25
+    },
+    {
+      "title": "",
+      "description": "Audio control",
+      "type": "Audio",
+      "room": "9",
+      "name": "Audio",
+      "value": "9",
+      "createdAt": 1605090966229,
+      "updatedAt": 1605090966229,
+      "timeslots": [
+        {
+          "id": 0,
+          "start": "07:00",
+          "stop": "09:00",
+          "value": "7"
+        }
+      ],
+      "id": 31
+    },
+    {
+      "title": "",
+      "description": "Audio control",
+      "type": "Audio",
+      "room": "2",
+      "name": "Hamid",
+      "value": 0,
+      "createdAt": 1605101840788,
+      "updatedAt": 1605101840788,
+      "timeslots": [],
+      "id": 32
     }
   ]
 }

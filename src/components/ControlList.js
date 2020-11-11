@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Card, Loader, Header, Container } from "semantic-ui-react";
 import axios from "axios";
 import { DB_URL } from '../data/db';
-import { LightControl, TempControl, AudioControl, CurtainControl } from './Control';
+import Control from './Control';
 import { useParams } from 'react-router-dom';
 
 const ControlList = (props) => {
@@ -49,11 +49,7 @@ const ControlList = (props) => {
                 {controls &&
                     <Card.Group>
                         {controls.map((control) => {
-                            if (control.type == 'Light') {return <LightControl key={control.id} control={control} onDelete={deleteControl} />};
-                            if (control.type == 'Temp') {return <LightControl key={control.id} control={control} onDelete={deleteControl} />};
-                            if (control.type == 'Audio') {return <LightControl key={control.id} control={control} onDelete={deleteControl} />};
-                            if (control.type == 'Curtains') {return <LightControl key={control.id} control={control} onDelete={deleteControl} />};
-                        }
+                            return <Control key={control.id} control={control} onDelete={deleteControl} />                        }
                         )}
                     </Card.Group>
                 }

@@ -8,32 +8,42 @@
                 {
                     "name": "Kitchen",
                     "nr": "1",
-                    "temperature": "20",
-                    "music": "false"
+                    "x": "0",
+                    "y": "0",
+                    "width":"100",
+                    "height":"100"
                 },
                 {
                     "name": "Living room",
                     "nr": "2",
-                    "temperature": "21",
-                    "music": "false"
+                    "x": "0",
+                    "y": "100",
+                    "width":"100",
+                    "height":"150"
                 },
                 {
                     "name": "Toilet",
                     "nr": "3",
-                    "temperature": "18",
-                    "music": "false"
+                    "x": "0",
+                    "y": "200",
+                    "width":"100",
+                    "height":"80"
                 },
                 {
                     "name": "Hall",
                     "nr": "4",
-                    "temperature": "18",
-                    "music": "false"
+                    "x": "200",
+                    "y": "0",
+                    "width":"300",
+                    "height":"300"
                 },
                 {
                     "name": "Dining room",
                     "nr": "5",
-                    "temperature": "21",
-                    "music": "false"
+                    "x": "300",
+                    "y": "300",
+                    "width":"200",
+                    "height":"200"
                 }
             ]
         },
@@ -45,26 +55,34 @@
                 {
                     "name": "Bed room 1",
                     "nr": "6",
-                    "temperature": "18",
-                    "music": "false"
+                    "x": "0",
+                    "y": "0",
+                    "width":"100",
+                    "height":"100"
                 },
                 {
                     "name": "Bed room 2",
                     "nr": "7",
-                    "temperature": "17",
-                    "music": "false"
+                    "x": "200",
+                    "y": "0",
+                    "width":"100",
+                    "height":"100"
                 },
                 {
                     "name": "Bed room 3",
                     "nr": "8",
-                    "temperature": "18",
-                    "music": "false"
+                    "x": "0",
+                    "y": "200",
+                    "width":"100",
+                    "height":"100"
                 },
                 {
                     "name": "Bathroom",
                     "nr": "9",
-                    "temperature": "20",
-                    "music": "false"
+                    "x": "300",
+                    "y": "300",
+                    "width":"100",
+                    "height":"100"
                 }
             ]
         }

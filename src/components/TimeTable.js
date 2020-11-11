@@ -11,7 +11,6 @@ import { Add } from '@material-ui/icons';
 
 const TimeTable = ({control}) => {
 
-    // State
     const [startTime, setStartTime] = useState('00:00');
     const [stopTime, setStopTime] = useState('00:00');
     const [showConfirmDialog, setShowConfirmDialog] = useState(false);
@@ -20,29 +19,10 @@ const TimeTable = ({control}) => {
     const [timeslotId, setTimeslotId] = useState(0);
     const [deleteTimeslot, setDeleteTimeslot] = useState(false);
 
-    // Handlers
-    const handleStartTimeChange = (e, {value}) => {
-        console.log('starttime: ' + value);
-        setStartTime(value);
-    }
-    const handleStopTimeChange = (e, {value}) => {
-        console.log('starttime: ' + value);
-        setStopTime(value);
-    }
-    const handleAddTimeSlot = () => {
-        async function patchTimeslotData() {
-            try {
-                const response = await axios.patch(`${DB_URL}/controls/${control.id}`, { timeslots: [...control.timeslots, { id: control.timeslots.length, start: startTime, stop: stopTime }]});
-            } catch (error) {
-                console.log("Could not update control! " + error);
-            }
-        }
-        patchTimeslotData();
-    }
     const handleDeleteTimeslotClick = (id) => {
         console.log('IN:handleDeleteTimeslotClick');
         let newId = 0;
-        control.timeslots.splice(timeslotId, 1);
+        control.timeslots.splice(id, 1);
         control.timeslots.map(timeslot => timeslot.id = newId++);
         console.log(control.timeslots);
         patchData();
@@ -55,17 +35,6 @@ const TimeTable = ({control}) => {
     const toggleShowTimeslotForm = () => {
         setShowTimeslotForm(!showTimeslotForm);
     }
-
-    // Hooks
-    useEffect(() => {
-        // document.getElementById('starttime').value = startTime;
-    }, [startTime]);
-    useEffect(() => {
-        console.log(control);
-    }, []);
-    useEffect(() => {
-        
-    }, [deleteTimeslot]);
 
     const patchData = () => {
         async function patchTimeslotData() {
@@ -81,7 +50,7 @@ const TimeTable = ({control}) => {
     return (
         <>
         <Card.Content>
-            <Table compact celled fixed singleLine>
+            <Table celled fixed singleLine>
             { control.timeslots.length > 0 ?
                 <Table.Header>
                     <Table.Row>
